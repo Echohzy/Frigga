@@ -1,0 +1,3 @@
+rootProject.name = 'Frigga'
+
+include ':app'
