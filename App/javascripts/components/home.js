@@ -10,7 +10,10 @@ import {
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/FontAwesome.js';
+
 import _ from 'lodash';
+
+import ArticleComponent from './article.js';
 
 var data = [
   {
@@ -29,11 +32,61 @@ var data = [
     comment: 4,
     release_date: new Date()
   },
+  {
+    id: 3,
+    title: "并不知道该说什么",
+    shortDescribetion: "测试测试测试",
+    like: 2,
+    comment: 4,
+    release_date: new Date()
+  },
+  {
+    id: 4,
+    title: "奥运会",
+    shortDescribetion: "里约大冒险",
+    like: 2,
+    comment: 4,
+    release_date: new Date()
+  },
+  {
+    id: 5,
+    title: "一本正经的测试文章",
+    shortDescribetion: "啦啦啦啦啦啦啦",
+    like: 2,
+    comment: 4,
+    release_date: new Date()
+  },
+  {
+    id: 6,
+    title: "并不知道该说什么",
+    shortDescribetion: "测试测试测试",
+    like: 2,
+    comment: 4,
+    release_date: new Date()
+  },
+  {
+    id: 7,
+    title: "并不知道该说什么",
+    shortDescribetion: "测试测试测试",
+    like: 10,
+    comment: 14,
+    release_date: new Date()
+  },
 ];
 
 import {baseColor} from "../../stylesheets/base.js";
 
 export default class Home extends Component {
+  constructor(props){
+    super(props);
+    this.showArticle = this.showArticle.bind(this);
+  }
+  showArticle(){
+    this.props.navigator.push({
+      title: "article",
+      component: ArticleComponent
+    });
+  }
   render(){
     return (
       <View style={styles.mainContainer}>
@@ -41,7 +94,7 @@ export default class Home extends Component {
           {
             _.map(data, function(item){
               return (
-                <TouchableHighlight key={item.id}>
+                <TouchableHighlight key={item.id} onPress={()=>this.showArticle()}>
                   <View style={styles.articleBlockContainer}>
                     <View style={styles.articleBlockTitleContent}>
                       <Text style={styles.articleBlockTitle}>{item.title}</Text>
@@ -69,7 +122,7 @@ export default class Home extends Component {
                   </View>
                 </TouchableHighlight>
               )
-            })
+            }, this)
           }
         </ScrollView>
       </View>
