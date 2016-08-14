@@ -14,14 +14,24 @@ import _ from 'lodash';
 
 var data = [
   {
-    id: "1",
+    id: 1,
     title: "测试文章测",
     shortDescribetion: "这是一篇测试文章啦啦啦啦",
-    image: "./AuthorAvatar.png",
     like: 2,
-    comment: 4
-  }
+    comment: 4,
+    release_date: new Date()
+  },
+  {
+    id: 2,
+    title: "这还是测试文章啦啦啦",
+    shortDescribetion: "啦啦啦这是测试测试测试啦",
+    like: 2,
+    comment: 4,
+    release_date: new Date()
+  },
 ];
+
+import {baseColor} from "../../stylesheets/base.js";
 
 export default class Home extends Component {
   render(){
@@ -39,22 +49,22 @@ export default class Home extends Component {
                     <View style={styles.articleShortDescribtionContent}>
                       <Text style={styles.articleShortDescribtion}>{item.shortDescribetion}</Text>
                     </View>
-                    <View>
-                      {item.image ? <Image source={require("../../images/test1.jpg")} style={styles.articleBlockImage}/> : <View />}
-                    </View>
                     <View style={styles.articleDetail}>
                       <TouchableHighlight>
                         <View style={styles.articleDetailItem}>
-                          <Icon name={"heart-o"} size={14}/>
-                          <Text>{item.like}</Text>
+                          <Icon style={styles.articleDetailIcon} name={"heart-o"} size={14}/>
+                          <Text style={styles.articleDetailText}>{item.like}</Text>
                         </View>
                       </TouchableHighlight>
                       <TouchableHighlight>
                         <View style={styles.articleDetailItem}>
-                          <Icon name={"commenting-o"} size={14} />
-                          <Text>{item.comment}</Text>
+                          <Icon style={styles.articleDetailIcon} name={"commenting-o"} size={14} />
+                          <Text style={styles.articleDetailText} >{item.comment}</Text>
                         </View>
                       </TouchableHighlight>
+                      <View>
+                        <Text style={styles.articleDetailText}>{item.release_date.toString().slice(0, 24)}</Text>
+                      </View>
                     </View>
                   </View>
                 </TouchableHighlight>
@@ -77,16 +87,17 @@ var styles = StyleSheet.create({
   },
   articleBlockContainer: {
     flex: 1,
-    backgroundColor: "red",
     borderTopWidth: 1,
     borderBottomWidth: 1,
-    borderColor: "lightgrey"
+    borderColor: baseColor.borderGray,
+    backgroundColor: baseColor.backgroundWhite,
+    marginBottom: 6
   },
   articleBlockTitleContent: {
     padding: 6
   },
   articleBlockTitle: {
-    fontSize: 20,
+    fontSize: 18,
     color: "#2b2b2b",
     fontWeight: "bold"
   },
@@ -112,5 +123,13 @@ var styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "nowrap",
     marginRight: 4
+  },
+  articleDetailIcon: {
+    marginRight: 4,
+    color: baseColor.textGrey
+  },
+  articleDetailText: {
+    fontSize: 14,
+    color: baseColor.textGrey
   }
 });

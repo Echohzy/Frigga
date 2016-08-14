@@ -4,6 +4,10 @@ import {
   NavigatorIOS
 } from 'react-native';
 
+import {
+  baseColor
+} from '../../stylesheets/base.js';
+
 import Home from "../components/home";
 
 export default class App extends Component {
@@ -17,6 +21,7 @@ export default class App extends Component {
           component : Home,
           title : "Home"
         }}
+        itemWrapperStyle={{backgroundColor: baseColor.bodyBackground}}
         style={{flex: 1}}/>
     );
   } 
