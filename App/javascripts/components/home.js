@@ -142,7 +142,7 @@ var styles = StyleSheet.create({
     flex: 1,
     borderTopWidth: 1,
     borderBottomWidth: 1,
-    borderColor: baseColor.borderGray,
+    borderColor: baseColor.borderGrey,
     backgroundColor: baseColor.backgroundWhite,
     marginBottom: 6
   },

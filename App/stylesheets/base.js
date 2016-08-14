@@ -5,7 +5,7 @@ import {
 var baseColor = {
   bodyBackground: "#f4f4f4",
   textGrey: "#888383",
-  borderGray: "#e2e6e6",
+  borderGrey: "#e2e6e6",
   backgroundWhite: "#fff"
 };
 
