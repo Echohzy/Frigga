@@ -18,11 +18,16 @@ var data = {
   comment: 2,
   commentData: [{
     created_at: new Date(2016, 8,16),
+    creator_nick_name: "Canaan",
     creator_avatar: "http://7arnu9.com1.z0.glb.clouddn.com/FvzoFNX5yrjOnJrn_wh58Pw1Q42z_xl",
     id: 1,
     content: "这是测试用的评论" 
   },{
-
+    created_at: new Date(2016, 8,16),
+    creator_nick_name: "Canaan",
+    creator_avatar: "http://7arnu9.com1.z0.glb.clouddn.com/FvzoFNX5yrjOnJrn_wh58Pw1Q42z_xl",
+    id: 2,
+    content: "这是测试用的评论"
   }]
 };
 
@@ -51,12 +56,26 @@ export default class ArticleComponent extends Component {
             <View><Text>{data.content}</Text></View>
           </View>
           <View style={styles.articleCommentContainer}>
-            _.map(data.commentData, function(item){
-              return (
-                <View key={item.id}>
-                </View>
-              );
-            })
+            {
+              _.map(data.commentData, function(item){
+                return (
+                  <View key={item.id} style={styles.articleCommentBlock}>
+                    <View style={styles.articleCommentCreator}>
+                      <View>
+                        <Image source={{uri: item.creator_avatar}} style={styles.articleCommentCreatorImage}/>
+                      </View>
+                      <View>
+                        <Text>{item.creator_nick_name}</Text>
+                        <Text>{item.created_at.toString().slice(0,24)}</Text>
+                      </View>
+                    </View>
+                    <View style={styles.articleCommentContent}>
+                      <Text>{item.content}</Text>
+                    </View>
+                  </View>
+                );
+              })
+            }
           </View>
         </ScrollView>
         <View style={styles.articleBottomContainer}>
@@ -117,7 +136,8 @@ var styles = StyleSheet.create({
   articleContentTitleText: {
     fontSize: 18,
     fontWeight: "bold",
-    marginBottom: 8
+    marginBottom: 8,
+    marginTop: 8
   },
   articleAuthorContainer: {
     flexDirection: "row",
@@ -141,6 +161,24 @@ var styles = StyleSheet.create({
   articleCommentContainer: {
     borderTopWidth: 1,
     borderColor: baseColor.borderGrey,
-    backgroundColor: baseColor.backgroundWhite
+    backgroundColor: baseColor.backgroundWhite,
+    marginTop: 8
+  },
+  articleCommentBlock: {
+    padding: 8,
+    borderBottomWidth: 1,
+    borderColor: baseColor.borderGrey
+  },
+  articleCommentCreator: {
+    flexDirection: "row",
+    flexWrap: "nowrap"
+  },
+  articleCommentCreatorImage: {
+    height: 40,
+    width: 40,
+    borderRadius: 20
+  },
+  articleCommentContent: {
+    marginTop: 6
   }
 });
