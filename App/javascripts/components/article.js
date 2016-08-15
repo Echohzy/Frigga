@@ -37,7 +37,19 @@ import _ from 'lodash';
 
 import { baseColor } from '../../stylesheets/base.js';
 
+import CommentComponent from './comment.js';
+
 export default class ArticleComponent extends Component {
+  constructor(props){
+    super(props);
+    this.handleComment = this.handleComment.bind(this);
+  }
+  handleComment(){
+    this.props.navigator.push({
+      title: "Comment",
+      component: CommentComponent
+    });
+  }
   render(){
     return (
       <View style={{flex: 1}}>
@@ -85,7 +97,7 @@ export default class ArticleComponent extends Component {
               <Text style={styles.articleBottomText}>{data.like}</Text>
             </View>
           </TouchableHighlight>
-          <TouchableHighlight style={{flex: 1}}>
+          <TouchableHighlight style={{flex: 1}} onPress={()=>this.handleComment()}>
             <View style={styles.articleBottomBlock}>
               <Icon name="commenting-o" style={styles.articleBottomIcon}/>
               <Text style={styles.articleBottomText}>{data.comment}</Text>
