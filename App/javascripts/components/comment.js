@@ -17,13 +17,11 @@ export default class CommentComponent extends Component {
   }
   render(){
     return(
-      <View style={{flex: 1}}>
+      <ScrollView style={{flex: 1}}>
         <View style={styles.commentTextContainer}>
-          <TextInput placeholder={"请输入正文"} style={{height: 200}}/>
+          <TextInput multiline={true} placeholder={"请输入正文"} style={styles.commentTextContent}/>
         </View>
-        <View>
-        </View>
-      </View>
+      </ScrollView>
     )
   }
 }
@@ -32,7 +30,12 @@ var styles = StyleSheet.create({
   commentTextContainer: {
     height: 200,
     borderBottomWidth: 1,
-    borderColor: baseColor.borderGrey
+    borderColor: baseColor.borderGrey,
+    padding: 10
+  },
+  commentTextContent: {
+    fontSize: 14,
+    height: 200
   }
 });
 
