@@ -39,15 +39,24 @@ import { baseColor } from '../../stylesheets/base.js';
 
 import CommentComponent from './comment.js';
 
+import UserComponent from "./user.js";
+
 export default class ArticleComponent extends Component {
   constructor(props){
     super(props);
     this.handleComment = this.handleComment.bind(this);
+    this.showUser = this.showUser.bind(this);
   }
   handleComment(){
     this.props.navigator.push({
       title: "Comment",
       component: CommentComponent
+    });
+  }
+  showUser(){
+    this.props.navigator.push({
+      title: "User",
+      component: UserComponent
     });
   }
   render(){
@@ -77,7 +86,7 @@ export default class ArticleComponent extends Component {
                         <Image source={{uri: item.creator_avatar}} style={styles.articleCommentCreatorImage}/>
                       </View>
                       <View>
-                        <Text>{item.creator_nick_name}</Text>
+                        <TouchableHighlight onPress={()=>this.showUser()}><Text>{item.creator_nick_name}</Text></TouchableHighlight>
                         <Text>{item.created_at.toString().slice(0,24)}</Text>
                       </View>
                     </View>
@@ -86,7 +95,7 @@ export default class ArticleComponent extends Component {
                     </View>
                   </View>
                 );
-              })
+              }, this)
             }
           </View>
         </ScrollView>
