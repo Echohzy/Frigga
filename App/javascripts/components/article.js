@@ -8,28 +8,7 @@ import {
   TouchableHighlight,
 } from 'react-native';
 
-var data = {
-  title: "测试文章啦啦啦啦",
-  content: "这是测试这是测试这是测试啦啦啦啦啦啦啦",
-  author_avatar: "http://7arnu9.com1.z0.glb.clouddn.com/FvzoFNX5yrjOnJrn_wh58Pw1Q42z_xl",
-  created_at: new Date(2016,8,8),
-  nick_name: "Canaan",
-  like: 3,
-  comment: 2,
-  commentData: [{
-    created_at: new Date(2016, 8,16),
-    creator_nick_name: "Canaan",
-    creator_avatar: "http://7arnu9.com1.z0.glb.clouddn.com/FvzoFNX5yrjOnJrn_wh58Pw1Q42z_xl",
-    id: 1,
-    content: "这是测试用的评论" 
-  },{
-    created_at: new Date(2016, 8,16),
-    creator_nick_name: "Canaan",
-    creator_avatar: "http://7arnu9.com1.z0.glb.clouddn.com/FvzoFNX5yrjOnJrn_wh58Pw1Q42z_xl",
-    id: 2,
-    content: "这是测试用的评论"
-  }]
-};
+import { article } from "../../../database.js";
 
 import Icon from 'react-native-vector-icons/FontAwesome.js';
 
@@ -66,19 +45,19 @@ export default class ArticleComponent extends Component {
           <View style={styles.articleContentContainer}>
             <View style={styles.articleAuthorContainer}>
               <View>
-                <Image source={{uri: data.author_avatar}} style={styles.articleAuthorAvatar}/>
+                <Image source={{uri: article.author_avatar}} style={styles.articleAuthorAvatar}/>
               </View>
               <View style={styles.articleAuthorDetail}>
-                <Text style={styles.articleAuthorNickName}>{data.nick_name}</Text>
-                <Text>{data.created_at.toString().slice(0, 24)}</Text>
+                <Text style={styles.articleAuthorNickName}>{article.nick_name}</Text>
+                <Text>{article.created_at.toString().slice(0, 24)}</Text>
               </View>
             </View>
-            <View><Text style={styles.articleContentTitleText}>{data.title}</Text></View>
-            <View><Text>{data.content}</Text></View>
+            <View><Text style={styles.articleContentTitleText}>{article.title}</Text></View>
+            <View><Text>{article.content}</Text></View>
           </View>
           <View style={styles.articleCommentContainer}>
             {
-              _.map(data.commentData, function(item){
+              _.map(article.commentData, function(item){
                 return (
                   <View key={item.id} style={styles.articleCommentBlock}>
                     <View style={styles.articleCommentCreator}>
@@ -100,16 +79,17 @@ export default class ArticleComponent extends Component {
           </View>
         </ScrollView>
         <View style={styles.articleBottomContainer}>
-          <TouchableHighlight style={{flex: 1, borderRightWidth: 1, borderColor: baseColor.borderGrey}}>
+          <TouchableHighlight underlayColor={"#333"}  activeOpacity={0.5} style={styles.articleBottomButton}>
             <View style={styles.articleBottomBlock}>
               <Icon name="heart-o" style={styles.articleBottomIcon}/>
-              <Text style={styles.articleBottomText}>{data.like}</Text>
+              <Text style={styles.articleBottomText}>{article.like}</Text>
             </View>
           </TouchableHighlight>
-          <TouchableHighlight style={{flex: 1}} onPress={()=>this.handleComment()}>
+          <View style={styles.articleBottomLine} />
+          <TouchableHighlight style={styles.articleBottomButton} underlayColor={"#333"} activeOpacity={0.5} onPress={()=>this.handleComment()}>
             <View style={styles.articleBottomBlock}>
               <Icon name="commenting-o" style={styles.articleBottomIcon}/>
-              <Text style={styles.articleBottomText}>{data.comment}</Text>
+              <Text style={styles.articleBottomText}>{article.comment}</Text>
             </View>
           </TouchableHighlight>
         </View>
@@ -126,17 +106,26 @@ var styles = StyleSheet.create({
     height: 50,
     flexDirection: "row",
     flexWrap: "nowrap",
-    padding: 6,
     borderTopWidth: 1,
     borderColor: baseColor.borderGrey,
-    backgroundColor: baseColor.backgroundWhite
+  },
+  articleBottomLine: {
+    borderRightWidth:1,
+    borderColor: baseColor.borderGrey,
+    marginTop: 10,
+    marginBottom: 10
   },
   articleBottomBlock: {
     flex: 1,
     flexDirection: "row",
     flexWrap: "nowrap",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    backgroundColor: baseColor.backgroundWhite
+  },
+  articleBottomButton: {
+    flex: 1,
+    backgroundColor:baseColor.backgroundWhite 
   },
   articleBottomIcon: {
     fontSize: 18,
