@@ -36,7 +36,7 @@ export default class Home extends Component {
       <View style={styles.mainContainer}>
         <ScrollView style={{flex: 1}}>
           {
-            _.map(articleList, function(item){
+            _.map(this.props.articleList, function(item){
               return (
                 <TouchableHighlight style={{marginBottom: 6}} key={item.id} underlayColor={"#333"} onPress={()=>this.showArticle()}>
                   <View style={styles.articleBlockContainer}>
@@ -51,7 +51,7 @@ export default class Home extends Component {
                         <Text style={styles.articleShortDescribtion}>{item.shortDescribetion}</Text>
                       </View>
                       <View style={styles.articleDetail}>
-                        <TouchableHighlight>
+                        <TouchableHighlight onPress={()=>this.props.onLikeArticle(item.id)}>
                           <View style={styles.articleDetailItem}>
                             <Icon style={styles.articleDetailIcon} name={"heart-o"} size={14}/>
                             <Text style={styles.articleDetailText}>{item.like}</Text>

@@ -4,8 +4,8 @@
  * @flow
  */
 
-import App from "./App/javascripts/containers/App.js";
+import Root from "./App/javascripts/containers/Root.js";
 import {
   AppRegistry
 } from 'react-native';
-AppRegistry.registerComponent('Frigga', () => App);
+AppRegistry.registerComponent('Frigga', () => Root);

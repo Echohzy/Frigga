@@ -11,11 +11,13 @@ import {
 
 import ParallaxView from 'react-native-parallax-view';
 
+import { user } from "../../../database.js";
+
 export default class UserComponent extends Component {
   render(){
     return (
       <ParallaxView
-        backgroundSource={{url: "http://7arnu9.com1.z0.glb.clouddn.com/FvzoFNX5yrjOnJrn_wh58Pw1Q42z_xl"}} windowHeight={300}>
+        backgroundSource={{url: user.backgroundImage}} windowHeight={300}>
           <View>
             <View style={styles.userAvatarContainer}>
               <View style={{flex: 1}}/>
