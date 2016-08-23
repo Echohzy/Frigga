@@ -10,9 +10,11 @@ import {
 } from '../actions/article_action';
 
 
+
 function mapStateToProps(state){
   return {
-    articleList: state.home.articleList
+    articleList: state.articleList.articleList,
+    account: state.account.account
   };
 }
 

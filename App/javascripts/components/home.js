@@ -51,18 +51,18 @@ export default class Home extends Component {
                         <Text style={styles.articleShortDescribtion}>{item.shortDescribetion}</Text>
                       </View>
                       <View style={styles.articleDetail}>
-                        <TouchableHighlight onPress={()=>this.props.onLikeArticle(item.id)}>
+                        <TouchableOpacity onPress={()=>this.props.onLikeArticle(item.id)}>
                           <View style={styles.articleDetailItem}>
                             <Icon style={styles.articleDetailIcon} name={"heart-o"} size={14}/>
                             <Text style={styles.articleDetailText}>{item.like}</Text>
                           </View>
-                        </TouchableHighlight>
-                        <TouchableHighlight>
+                        </TouchableOpacity>
+                        <TouchableOpacity>
                           <View style={styles.articleDetailItem}>
                             <Icon style={styles.articleDetailIcon} name={"commenting-o"} size={14} />
                             <Text style={styles.articleDetailText} >{item.comment}</Text>
                           </View>
-                        </TouchableHighlight>
+                        </TouchableOpacity>
                         <View>
                           <Text style={styles.articleDetailText}>{item.release_date.toString().slice(0, 24)}</Text>
                         </View>
