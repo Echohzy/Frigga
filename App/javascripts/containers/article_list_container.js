@@ -1,4 +1,4 @@
-import HomeComponent from "../components/home";
+import ArticleListComponent from "../components/article_list_component";
 
 import { connect } from 'react-redux';
 
@@ -26,4 +26,4 @@ function mapDispatchToProps(dispatch){
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(ArticleListComponent);

@@ -14,13 +14,13 @@ import Icon from 'react-native-vector-icons/FontAwesome.js';
 
 import _ from 'lodash';
 
-import ArticleComponent from './article.js';
+import Article from '../pages/article.js';
 
 import { articleList } from "../../../database.js";
 
 import {baseColor} from "../../stylesheets/base.js";
 
-export default class Home extends Component {
+export default class ArticleListComponent extends Component {
   constructor(props){
     super(props);
     this.showArticle = this.showArticle.bind(this);
@@ -28,12 +28,11 @@ export default class Home extends Component {
   showArticle(){
     this.props.navigator.push({
       title: "article",
-      component: ArticleComponent
+      component: Article
     });
   }
   render(){
     return (
-      <View style={styles.mainContainer}>
         <ScrollView style={{flex: 1}}>
           {
             _.map(this.props.articleList, function(item){
@@ -74,15 +73,11 @@ export default class Home extends Component {
             }, this)
           }
         </ScrollView>
-      </View>
     );
   }
 }
 
 var styles = StyleSheet.create({
-  mainContainer: {
-    flex: 1,
-  },
   mainText: {
     fontSize: 30,
     fontWeight: "bold"

@@ -8,7 +8,7 @@ import {
   baseColor
 } from '../../stylesheets/base.js';
 
-import HomeContainer from "../containers/home_container";
+import Home from "./home";
 
 export default class App extends Component {
   constructor(props){
@@ -18,7 +18,7 @@ export default class App extends Component {
     return (
       <NavigatorIOS 
         initialRoute={{
-          component : HomeContainer,
+          component : Home,
           title : "Home"
         }}
         itemWrapperStyle={{backgroundColor: baseColor.bodyBackground}}

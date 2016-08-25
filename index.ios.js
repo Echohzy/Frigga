@@ -4,7 +4,7 @@
  * @flow
  */
 
-import Root from "./App/javascripts/containers/Root.js";
+import Root from "./App/javascripts/Root.js";
 import {
   AppRegistry
 } from 'react-native';

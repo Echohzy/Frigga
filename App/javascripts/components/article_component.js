@@ -17,9 +17,9 @@ import _ from 'lodash';
 
 import { baseColor } from '../../stylesheets/base.js';
 
-import CommentComponent from './comment.js';
+import CommentComponent from './comment_component.js';
 
-import UserComponent from "./user.js";
+import UserComponent from "./user_component.js";
 
 export default class ArticleComponent extends Component {
   constructor(props){

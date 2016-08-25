@@ -3,7 +3,7 @@ import {
   ASYNC_ACCOUNT,
 } from "../actions/account_action";
 
-import { combineReducers } from 
+import { combineReducers } from "redux";
 
 function account(state, action){
   switch(action.type){

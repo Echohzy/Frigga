@@ -1,12 +1,12 @@
-import articleListReducer from "../reducers/article_list_reducer";
+import articleListReducer from "./reducers/article_list_reducer";
 
-import accountReducer from "../reducers/accountReducer";
+import accountReducer from "./reducers/account_reducer";
 
 import React, {Component} from "react";
 
 import {Provider} from "react-redux";
 
-import App from "./App";
+import App from "./pages/App";
 
 import { createStore, combineReducers } from "redux";
 
@@ -26,4 +26,3 @@ export default class Root extends Component {
     );
   }
 }
-
