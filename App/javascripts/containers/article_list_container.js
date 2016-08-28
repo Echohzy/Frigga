@@ -6,15 +6,16 @@ import {
   addArticle,
   deleteArticle,
   commentArticle,
-  likeArticle
+  likeArticle,
+  fetchArticleList
 } from '../actions/article_action';
 
 
 
 function mapStateToProps(state){
   return {
-    articleList: state.articleList.articleList,
-    account: state.account.account
+    articleList: state.articleListReducer.articleList,
+    account: state.accountReducer.account
   };
 }
 
@@ -22,6 +23,9 @@ function mapDispatchToProps(dispatch){
   return {
     onLikeArticle: function(id){
       dispatch(likeArticle(id));
+    },
+    onFetchArticleList: function(data){
+      dispatch(fetchArticleList(data));
     }
   };
 }

@@ -25,6 +25,9 @@ export default class ArticleListComponent extends Component {
     super(props);
     this.showArticle = this.showArticle.bind(this);
   }
+  componentWillMount(){
+    this.props.onFetchArticleList(articleList);
+  }
   showArticle(){
     this.props.navigator.push({
       title: "article",

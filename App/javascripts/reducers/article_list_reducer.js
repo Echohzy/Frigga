@@ -2,17 +2,18 @@ import {
   ADD_ARTICLE,
   DELETE_ARTICLE,
   COMMENT_ARTICLE,
-  LIKE_ARTICLE
+  LIKE_ARTICLE,
+  FETCH_ARTICLELIST
 } from "../actions/article_action";
 
 import { combineReducers } from "redux";
 
 import _ from "lodash";
 
-var data = require("../../../database");
-
 function articleList(state, action){
   switch(action.type){
+    case FETCH_ARTICLELIST:
+      return action.data;
     case COMMENT_ARTICLE:
       return _.map(state, function(item){
         if(item.id === action.id){
@@ -34,7 +35,7 @@ function articleList(state, action){
         return item.id === action.id;
       });
     default:
-      return state||data.articleList;
+      return state|| [];
   };
 }
 

@@ -5,7 +5,7 @@ import {
   StyleSheet
 } from "react-native";
 
-import ArticleComponent from "../components/article_component";
+import ArticleContainer from "../containers/article_container";
 
 export default class Article extends Component {
   constructor(props){
@@ -14,7 +14,7 @@ export default class Article extends Component {
   render(){
     return(
       <View style={{flex: 1}}>
-        <ArticleComponent navigator={this.props.navigator}/>
+        <ArticleContainer navigator={this.props.navigator}/>
       </View>
     );
   }
