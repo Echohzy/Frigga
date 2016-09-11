@@ -45,7 +45,9 @@ var styles = StyleSheet.create({
   footerContainer: {
     flexWrap: "nowrap",
     flexDirection: "row",
-    height: 60
+    height: 50,
+    borderTopWidth: 1,
+    borderColor: baseColor.borderGrey
   },
   footerItem: {
     flex: 1,
