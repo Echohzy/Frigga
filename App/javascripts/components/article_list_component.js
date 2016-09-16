@@ -40,7 +40,7 @@ export default class ArticleListComponent extends Component {
           {
             _.map(this.props.articleList, function(item){
               return (
-                <TouchableHighlight style={{marginBottom: 6}} key={item.id} underlayColor={"#333"} onPress={()=>this.showArticle()}>
+                <TouchableHighlight style={{marginTop: 6}} key={item.id} underlayColor={"#333"} onPress={()=>this.showArticle()}>
                   <View style={styles.articleBlockContainer}>
                     <View style={styles.articleAvatarBlock}>
                       <Image source={{uri: item.avatar}} style={styles.articleAvatar}/>

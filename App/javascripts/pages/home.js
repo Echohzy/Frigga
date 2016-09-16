@@ -8,39 +8,20 @@ import {
 
 import ArticleListContainer from "../containers/article_list_container";
 
-import EditorComponent from "../components/editor_component";
-
 import FooterComponent from "../components/footer_component";
+
+import HeaderComponent from "../components/header_component";
 
 export default class Home extends Component {
   constructor(props){
     super(props);
-    this.state = {
-      view: "home"
-    };
-    this.changeView = this.changeView.bind(this);
-    this.renderContent = this.renderContent.bind(this);
-  }
-  changeView(item){
-    this.setState({view: item});
-  }
-  renderContent(){
-    var Content = "";
-    switch(this.state.view){
-      case "home":
-        return Content = ArticleListContainer;
-      case "editor":
-        return Content = EditorComponent;
-      default:
-        return Content = ArticleListContainer;
-    }
   }
   render(){
-    var Content = this.renderContent();
     return (
       <View style={{flex: 1}}>
-        <Content navigator={this.props.navigator}/>
-        <FooterComponent changeView={this.changeView} selectedItem={this.state.view} />
+        <HeaderComponent title={"Home"} />
+        <ArticleListContainer push={(route)=>this.props.push(route)} />
+        <FooterComponent push={(route)=>this.props.push(route)} selectedItem={"Home"} />
       </View>
     );
   }
