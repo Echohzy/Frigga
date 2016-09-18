@@ -24,7 +24,7 @@ export default class EditorComponent extends Component {
         </View>
         <View style={styles.editorItemBlock}>
           <Text style={styles.editorItemText}>内容：</Text>
-          <TextInput style={styles.editorItemInput}/>
+          <TextInput multiline={true} style={[styles.editorItemInput,{minHeight: 100}]}/>
         </View>
       </ScrollView>
     );
@@ -38,14 +38,17 @@ var styles = StyleSheet.create({
     padding: 6
   },
   editorItemText: {
-    fontSize: 14
+    fontSize: 16,
+    padding: 4
   },
   editorItemInput: {
     flex: 1,
     borderWidth: 1,
     borderColor: baseColor.borderGrey,
     borderRadius: 2,
+    fontSize: 16,
     backgroundColor: "#fff",
-    minHeight: 16
+    minHeight: 20,
+    paddingLeft: 4
   }
 });

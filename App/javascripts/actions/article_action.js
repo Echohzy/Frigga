@@ -5,10 +5,10 @@ const LIKE_ARTICLE = "LIKE_ARTICLE";
 const FETCH_ARTICLELIST = "FETCH_ARTICLELIST";
 const FETCH_ARTICLE = "FETCH_ARTICLE";
 
-function addArticle(text){
+function addArticle(data){
   return {
     type: ADD_ARTICLE,
-    text: text
+    data: data
   };
 }
 
