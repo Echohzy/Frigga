@@ -29,10 +29,7 @@ export default class ArticleListComponent extends Component {
     this.props.onFetchArticleList(articleList);
   }
   showArticle(){
-    this.props.navigator.push({
-      title: "article",
-      component: Article
-    });
+    this.props.push({title: "Article"});
   }
   render(){
     return (

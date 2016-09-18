@@ -31,16 +31,10 @@ export default class ArticleComponent extends Component {
     this.props.onFetchArticle(article);
   }
   handleComment(){
-    this.props.navigator.push({
-      title: "Comment",
-      component: CommentComponent
-    });
+    this.props.push({title:"Comment"})
   }
   showUser(){
-    this.props.navigator.push({
-      title: "User",
-      component: UserComponent
-    });
+    this.props.push({title: "User"});
   }
   render(){
     return (

@@ -7,6 +7,8 @@ import {
 
 import ArticleContainer from "../containers/article_container";
 
+import HeaderComponent from "../components/header_component";
+
 export default class Article extends Component {
   constructor(props){
     super(props);
@@ -14,7 +16,8 @@ export default class Article extends Component {
   render(){
     return(
       <View style={{flex: 1}}>
-        <ArticleContainer navigator={this.props.navigator}/>
+        <HeaderComponent title={"Article"} pop={this.props.pop}/>
+        <ArticleContainer push={this.props.push}/>
       </View>
     );
   }

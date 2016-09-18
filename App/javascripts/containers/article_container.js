@@ -11,7 +11,7 @@ var mapStateToProps = function(state, ownProps){
     article: state.articleReducer.article,
     account: state.accountReducer.account
   };
-}
+};
 
 var mapDispatchToProps = function(dispatch){
   return {
@@ -19,6 +19,6 @@ var mapDispatchToProps = function(dispatch){
       dispatch(fetchArticle(data));
     }
   };
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ArticleComponent);
