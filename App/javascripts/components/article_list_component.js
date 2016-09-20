@@ -23,13 +23,9 @@ import {baseColor} from "../../stylesheets/base.js";
 export default class ArticleListComponent extends Component {
   constructor(props){
     super(props);
-    this.showArticle = this.showArticle.bind(this);
   }
   componentWillMount(){
     this.props.onFetchArticleList(articleList);
-  }
-  showArticle(){
-    this.props.push({title: "Article"});
   }
   render(){
     return (
@@ -37,7 +33,7 @@ export default class ArticleListComponent extends Component {
           {
             _.map(this.props.articleList, function(item){
               return (
-                <TouchableHighlight style={{marginTop: 6}} key={item.id} underlayColor={"#333"} onPress={()=>this.showArticle()}>
+                <TouchableHighlight style={{marginTop: 6}} key={item.id} underlayColor={"#333"} onPress={()=>this.props.push({title: "Article"})}>
                   <View style={styles.articleBlockContainer}>
                     <View style={styles.articleAvatarBlock}>
                       <Image source={{uri: item.avatar}} style={styles.articleAvatar}/>
@@ -56,7 +52,7 @@ export default class ArticleListComponent extends Component {
                             <Text style={styles.articleDetailText}>{item.like}</Text>
                           </View>
                         </TouchableOpacity>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={()=>this.props.push({title: "Comment"})}>
                           <View style={styles.articleDetailItem}>
                             <Icon style={styles.articleDetailIcon} name={"commenting-o"} size={14} />
                             <Text style={styles.articleDetailText} >{item.comment}</Text>

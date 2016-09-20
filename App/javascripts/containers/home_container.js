@@ -1,6 +1,6 @@
-import ArticleListComponent from "../components/article_list_component";
+import Home from "../pages/home";
 
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
 import {
   addArticle,
@@ -9,8 +9,6 @@ import {
   likeArticle,
   fetchArticleList
 } from '../actions/article_action';
-
-
 
 function mapStateToProps(state){
   return {
@@ -30,4 +28,4 @@ function mapDispatchToProps(dispatch){
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ArticleListComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

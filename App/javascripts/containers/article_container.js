@@ -1,4 +1,4 @@
-import ArticleComponent from "../components/article_component";
+import Article from "../pages/article";
 
 import { connect } from "react-redux";
 
@@ -21,4 +21,4 @@ var mapDispatchToProps = function(dispatch){
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ArticleComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(Article);

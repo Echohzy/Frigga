@@ -5,7 +5,7 @@ import {
   StyleSheet
 } from "react-native";
 
-import ArticleContainer from "../containers/article_container";
+import ArticleComponent from "../components/article_component";
 
 import HeaderComponent from "../components/header_component";
 
@@ -17,7 +17,7 @@ export default class Article extends Component {
     return(
       <View style={{flex: 1}}>
         <HeaderComponent title={"Article"} pop={this.props.pop}/>
-        <ArticleContainer push={this.props.push}/>
+        <ArticleComponent {...this.props} />
       </View>
     );
   }

@@ -6,7 +6,7 @@ import {
   StyleSheet,
 } from "react-native";
 
-import ArticleListContainer from "../containers/article_list_container";
+import ArticleListComponent from "../components/article_list_component";
 
 import FooterComponent from "../components/footer_component";
 
@@ -20,14 +20,9 @@ export default class Home extends Component {
     return (
       <View style={{flex: 1}}>
         <HeaderComponent title={"Home"} />
-        <ArticleListContainer push={(route)=>this.props.push(route)} />
+        <ArticleListComponent {...this.props} />
         <FooterComponent push={(route)=>this.props.push(route)} selectedItem={"Home"} />
       </View>
     );
   }
 }
-
-
-var styles = StyleSheet.create({
-
-});
