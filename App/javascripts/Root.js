@@ -9,25 +9,30 @@ import HomeContainer from "./containers/home_container";
 
 import ArticleContainer from "./containers/article_container";
 
+import SignInContainer from "./containers/sign_in_container";
+
 import articleListReducer from "./reducers/article_list_reducer";
 
 import accountReducer from "./reducers/account_reducer";
 
 import articleReducer from "./reducers/article_reducer";
 
-import signInFormReducer from "../reducers/sign_in_form_reducer";
+import signInReducer from "./reducers/sign_in_form_reducer";
 
 import {Provider} from "react-redux";
 
-import { createStore, combineReducers } from "redux";
+import { createStore, combineReducers, applyMiddleware } from "redux";
+
+import ReduxThunk from "redux-thunk";
 
 var store = createStore(
   combineReducers({
     articleListReducer: articleListReducer,
     articleReducer: articleReducer,
     accountReducer: accountReducer,
-    signInFormReducer: signInFormReducer
-  })
+    signInReducer: signInReducer
+  }),
+  applyMiddleware(ReduxThunk)
 );
 
 export default class Root extends Component {
@@ -44,8 +49,11 @@ export default class Root extends Component {
       case "Article":
         Content = ArticleContainer;
         break;
+      case "SignIn":
+        Content = SignInContainer;
+        break;
       default:
-        Content = HomeContainer;
+        Content = SignInContainer;
     }
     var props = Object.assign({},{
       push: function(route, object){
@@ -62,7 +70,7 @@ export default class Root extends Component {
     return (
       <Provider store={store}>
         <Navigator 
-          initialRoute={{title : "Home", index: 0}}
+          initialRoute={{title : "SignIn", index: 0}}
           renderScene={this._renderScene}
           configureScene={(route, routeStack) => Navigator.SceneConfigs.FadeAndroid}
           style={{flex: 1}}/>

@@ -1,3 +1,8 @@
+import {
+  articleList,
+  article
+} from "../../../database";
+
 const ADD_ARTICLE = "ADD_ARTICLE";
 const DELETE_ARTICLE = "DELETE_ARTICLE";
 const COMMENT_ARTICLE = "COMMENT_ARTICLE";

@@ -95,14 +95,15 @@ var article = {
   }]
 };
 
-var user = {
+var account = {
   backgroundImage: "http://7arnu9.com1.z0.glb.clouddn.com/FvzoFNX5yrjOnJrn_wh58Pw1Q42z_xl",
   avatar: "../../images/test3.jpg",
-  nick_name: "Canaan"
+  nick_name: "Canaan",
+  user_name: "test"
 };
 
 export {
   articleList,
   article,
-  user
+  account
 };
