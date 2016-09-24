@@ -15,6 +15,8 @@ import accountReducer from "./reducers/account_reducer";
 
 import articleReducer from "./reducers/article_reducer";
 
+import signInFormReducer from "../reducers/sign_in_form_reducer";
+
 import {Provider} from "react-redux";
 
 import { createStore, combineReducers } from "redux";
@@ -23,7 +25,8 @@ var store = createStore(
   combineReducers({
     articleListReducer: articleListReducer,
     articleReducer: articleReducer,
-    accountReducer: accountReducer
+    accountReducer: accountReducer,
+    signInFormReducer: signInFormReducer
   })
 );
 
