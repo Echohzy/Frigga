@@ -19,7 +19,7 @@ export default class FormInputBlockComponent extends Component {
           style={styles.inputBlockContent}
           placeholder={this.props.placeholder}
           secureTextEntry={this.props.secureTextEntry||false}
-          onChange={(event)=>this.props.onChange(event.nativeEvent.text)}/>
+          onChange={(event)=>this.props.onChange(this.props.attrName, event.nativeEvent.text)}/>
       </View>
     );
   }

@@ -99,7 +99,9 @@ var account = {
   backgroundImage: "http://7arnu9.com1.z0.glb.clouddn.com/FvzoFNX5yrjOnJrn_wh58Pw1Q42z_xl",
   avatar: "../../images/test3.jpg",
   nick_name: "Canaan",
-  user_name: "test"
+  user_name: "test",
+  password: "12345678",
+  id:"1"
 };
 
 export {

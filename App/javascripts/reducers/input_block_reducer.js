@@ -8,7 +8,7 @@ function createdInputBlockReducer(reducerName){
       if(action.attrName === attrName && action.reducerName === reducerName){
         switch(action.type){
           case CHANGE_TEXT_INPUT_VALUE:
-            return Object.assign({},state, {value: action.value});
+            return Object.assign({},state, {value: action.text});
           default:
             return state;
         }

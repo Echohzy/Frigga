@@ -1,5 +1,9 @@
 import {account} from "../../../database";
 
+import {
+  AlertIOS
+} from "react-native";
+
 const ASYNC_ACCOUNT = "ASYNC_ACCOUNT";
 const SET_ACCOUNT = "SET_ACCOUNT";
 const SIGN_IN = "SIGN_IN";
@@ -23,6 +27,11 @@ function signIn(params){
   return function(dispatch){
     if(params.login_name === account.user_name&&params.password === account.password){
       dispatch(asyncAccount(account));
+    }else{
+      AlertIOS.alert(
+       '登录',
+       '用户名或密码错误'
+      );
     }
   };
 }

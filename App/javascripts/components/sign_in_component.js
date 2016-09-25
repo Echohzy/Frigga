@@ -11,6 +11,9 @@ import {
 import FormInputBlockComponent from "./form_input_block_component";
 
 export default class SignInComponent extends Component {
+  constructor(props){
+    super(props);
+  }
   render(){
     return (
       <View style={styles.signInFormContainer}>
@@ -20,7 +23,7 @@ export default class SignInComponent extends Component {
         <FormInputBlockComponent 
           {...this.props.password}
           onChange={this.props.onChangeText}/>
-        <TouchableOpacity style={styles.submitButton}onPress={()=>this.props.onSignIn({login_name: this.props.login_name.value, password: this.props.password.value})}>
+        <TouchableOpacity style={styles.submitButton} onPress={()=>this.props.onSignIn({login_name: this.props.login_name.value, password: this.props.password.value})}>
           <Text style={styles.submitButtonText}>登录</Text>
         </TouchableOpacity>
       </View>
