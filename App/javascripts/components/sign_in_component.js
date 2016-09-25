@@ -36,16 +36,17 @@ var styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    paddingLeft: 20,
-    paddingRight: 20
+    paddingLeft: 30,
+    paddingRight: 30,
+    paddingBottom:30
   },
   submitButton:{
     height: 40,
-    width: 60,
+    width: 80,
     backgroundColor: "#2666b5",
     borderRadius: 4,
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   submitButtonText:{
     color: "#fff",

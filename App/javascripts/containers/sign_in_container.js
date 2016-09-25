@@ -10,13 +10,13 @@ var ATTRS = {
   login_name: {
     placeholder: "请输入用户名",
     value:"",
-    title: "用户名",
+    title: "用户",
     attrName: "login_name"
   },
   password: {
     placeholder: "请输入密码",
     value: "",
-    title: "密 码",
+    title: "密码",
     secureTextEntry: true,
     attrName: "password"
   }

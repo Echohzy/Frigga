@@ -14,12 +14,16 @@ export default class FormInputBlockComponent extends Component {
   render(){
     return (
       <View style={styles.inputBlockContainer}>
-        <Text style={styles.inputBlockText}>{this.props.title+":"}</Text>
-        <TextInput
-          style={styles.inputBlockContent}
-          placeholder={this.props.placeholder}
-          secureTextEntry={this.props.secureTextEntry||false}
-          onChange={(event)=>this.props.onChange(this.props.attrName, event.nativeEvent.text)}/>
+        <View style={styles.inputBlockTextBlock}>
+          <Text style={styles.inputBlockText}>{this.props.title+":"}</Text>
+        </View>
+        <View style={styles.inputBlock}>
+          <TextInput
+            style={styles.inputBlockContent}
+            placeholder={this.props.placeholder}
+            secureTextEntry={this.props.secureTextEntry||false}
+            onChange={(event)=>this.props.onChange(this.props.attrName, event.nativeEvent.text)}/>
+        </View>
       </View>
     );
   }
@@ -29,18 +33,27 @@ var styles = StyleSheet.create({
   inputBlockContainer: {
     flexDirection: "row",
     flexWrap: "nowrap",
-    marginBottom: 10,
-    height: 20
+    marginBottom: 20,
+    height: 30
+  },
+  inputBlockTextBlock: {
+    height: 30,
+    width: 80,
+    justifyContent: "flex-end",
+    alignItems: "center"
   },
   inputBlockText: {
-    width: 80,
     fontSize: 20,
+  },
+  inputBlock: {
+    flex:1,
+    borderWidth: 1,
+    borderColor: "#e2e6e6",
+    borderRadius: 4,
+    padding:4
   },
   inputBlockContent: {
     flex: 1,
-    borderWidth: 1,
-    borderColor: "#e2e6e6",
-    borderRadius: 4
   }
 });
 
