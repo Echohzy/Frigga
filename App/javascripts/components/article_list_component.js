@@ -52,7 +52,7 @@ export default class ArticleListComponent extends Component {
                             <Text style={styles.articleDetailText}>{item.like}</Text>
                           </View>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={()=>this.props.push({title: "Comment"})}>
+                        <TouchableOpacity onPress={()=>this.props.push({title: "Comment", props: {articleId: item.id}})}>
                           <View style={styles.articleDetailItem}>
                             <Icon style={styles.articleDetailIcon} name={"commenting-o"} size={14} />
                             <Text style={styles.articleDetailText} >{item.comment}</Text>

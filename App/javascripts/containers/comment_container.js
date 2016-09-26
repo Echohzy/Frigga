@@ -1,8 +1,12 @@
 import Comment from "../pages/comment";
 
 import {
-  changeCommentText
+  commentArticle
 } from "../actions/article_action";
+
+import {
+  changeTextInputValue
+} from "../actions/form_action"
 
 import {
   connect
@@ -10,17 +14,24 @@ import {
 
 var mapStateToProps = function(state){
   return {
-    comment: state.commentReducer.comment
+    comment: state.commentReducer.comment,
+    account: state.accountReducer.account
   };
 };
 
-var mapDispatchToProps = function(dispatch){
-  return {
-    onCommentTextChange: function(value){
-      dispatch(changeCommentText(value));
-    }
+var mapDispatchToProps = function(reducerName){
+  return function (dispatch){
+    return {
+      onChangeText: function(attrName, text){
+        dispatch(changeTextInputValue(text));
+      },
+      onCommentSubmit: function(params){
+        dispatch(commentArticle(params));
+      }
+    };
   };
 };
 
+export default connect(mapStateToProps, mapDispatchToProps("commentReducer"))(Comment);
 
 

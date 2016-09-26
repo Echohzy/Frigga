@@ -9,6 +9,8 @@ import articleReducer from "./reducers/article_reducer";
 
 import signInReducer from "./reducers/sign_in_form_reducer";
 
+import commentReducer from "./reducers/comment_reducer";
+
 import App from "./containers/App";
 
 import {Provider} from "react-redux";
@@ -22,7 +24,8 @@ var store = createStore(
     articleListReducer: articleListReducer,
     articleReducer: articleReducer,
     accountReducer: accountReducer,
-    signInReducer: signInReducer
+    signInReducer: signInReducer,
+    commentReducer: commentReducer
   }),
   applyMiddleware(ReduxThunk)
 );

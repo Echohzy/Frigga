@@ -10,6 +10,8 @@ import ArticleContainer from "./article_container";
 
 import SignInContainer from "./sign_in_container";
 
+import CommentContainer from "./comment_container";
+
 import { connect } from "react-redux";
 
 class App extends Component {
@@ -32,6 +34,9 @@ class App extends Component {
         case "SignIn":
           Content = SignInContainer;
           break;
+        case "Comment":
+          Content = CommentContainer;
+          break;
         default:
           Content = HomeContainer;
       }
@@ -42,7 +47,8 @@ class App extends Component {
       },
       pop: function(){
         navigator.pop();
-      }
+      },
+      ...route.props
     });
 
     return <Content {...props} />
