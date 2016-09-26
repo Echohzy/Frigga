@@ -11,6 +11,8 @@ import { baseColor } from "../../stylesheets/base.js";
 
 import Icon from 'react-native-vector-icons/FontAwesome.js';
 
+import FormInputBlockComponent from "./form_input_block_component";
+
 export default class CommentComponent extends Component {
   constructor(props){
     super(props);

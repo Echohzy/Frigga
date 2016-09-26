@@ -12,6 +12,16 @@ import {
   connect
 } from "react-redux";
 
+var ATTRS = {
+  comment: {
+    placeholder: "请输入评论",
+    value:"",
+    title: "评论",
+    attrName: "comment",
+    multiline:true
+  }
+};
+
 var mapStateToProps = function(state){
   return {
     comment: state.commentReducer.comment,

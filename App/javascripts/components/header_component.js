@@ -26,6 +26,7 @@ export default class HeaderComponent extends Component {
           <Text style={styles.headerTitleBlockText}>{this.props.title}</Text>
         </View>
         <View style={styles.headerRightButtonBlock}>
+          {this.props.rightButton?this.props.rightButton:<View />}
         </View>
       </View>
     );
@@ -58,6 +59,8 @@ var styles = StyleSheet.create({
     fontSize: 20
   },
   headerRightButtonBlock: {
-    width: 40
+    width: 40,
+    alignItems: "center",
+    justifyContent: "center"
   }
 });

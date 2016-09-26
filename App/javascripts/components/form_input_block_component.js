@@ -7,6 +7,8 @@ import {
   StyleSheet
 } from "react-native";
 
+
+
 export default class FormInputBlockComponent extends Component {
   constructor(props){
     super(props);
@@ -22,6 +24,7 @@ export default class FormInputBlockComponent extends Component {
             style={styles.inputBlockContent}
             placeholder={this.props.placeholder}
             secureTextEntry={this.props.secureTextEntry||false}
+            multiline={this.props.multiline||false}
             onChange={(event)=>this.props.onChange(this.props.attrName, event.nativeEvent.text)}/>
         </View>
       </View>
