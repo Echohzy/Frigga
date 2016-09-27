@@ -19,7 +19,7 @@ export default class HeaderComponent extends Component {
         <View style={styles.headerLeftButtonBlock}>
           {this.props.pop ?
             <TouchableOpacity onPress={()=>this.props.pop()}>
-              <Icon name="angle-left" size={30}/>
+              <Icon name="angle-left" size={26}/>
             </TouchableOpacity> : <View />}
         </View>
         <View style={styles.headerTitleBlock}>
@@ -43,12 +43,9 @@ var styles = StyleSheet.create({
     borderColor: "#e2e6e6"
   },
   headerLeftButtonBlock: {
-    width: 40,
+    width: 50,
     alignItems: "center",
     justifyContent: "center"
-  },
-  headerLeftButtonBlockIcon: {
-
   },
   headerTitleBlock: {
     flex: 1,
@@ -59,7 +56,7 @@ var styles = StyleSheet.create({
     fontSize: 20
   },
   headerRightButtonBlock: {
-    width: 40,
+    width: 50,
     alignItems: "center",
     justifyContent: "center"
   }

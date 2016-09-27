@@ -37,8 +37,8 @@ export default class Comment extends Component {
           title={"Comment"} 
           pop={this.props.pop} 
           rightButton={
-            <TouchableOpacity onPress={()=>this.handleSubmitComment()}>
-              <Text style={{fontSize: 16}}>完成</Text>
+            <TouchableOpacity style={{padding:4,backgroundColor:"#ee6d00",borderRadius:2}} onPress={()=>this.handleSubmitComment()}>
+              <Text style={{fontSize: 14, color:"#fff"}}>完成</Text>
             </TouchableOpacity>
           }/>
         <CommentComponent {...this.props} />

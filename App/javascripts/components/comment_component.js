@@ -21,7 +21,9 @@ export default class CommentComponent extends Component {
     return(
       <ScrollView style={{flex: 1}}>
         <View style={styles.commentTextContainer}>
-          <TextInput multiline={true} placeholder={"请输入正文"} style={styles.commentTextContent}/>
+          <FormInputBlockComponent 
+          {...this.props.comment}
+          onChange={this.props.onChangeText}/>
         </View>
       </ScrollView>
     )
@@ -30,10 +32,7 @@ export default class CommentComponent extends Component {
 
 var styles = StyleSheet.create({
   commentTextContainer: {
-    height: 200,
-    borderBottomWidth: 1,
-    borderColor: baseColor.borderGrey,
-    padding: 10
+    paddingTop:10
   },
   commentTextContent: {
     fontSize: 14,

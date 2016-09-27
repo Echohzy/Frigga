@@ -16,7 +16,6 @@ var ATTRS = {
   comment: {
     placeholder: "请输入评论",
     value:"",
-    title: "评论",
     attrName: "comment",
     multiline:true
   }
@@ -24,7 +23,7 @@ var ATTRS = {
 
 var mapStateToProps = function(state){
   return {
-    comment: state.commentReducer.comment,
+    comment: Object.assign({}, ATTRS.comment, state.commentReducer.comment),
     account: state.accountReducer.account
   };
 };

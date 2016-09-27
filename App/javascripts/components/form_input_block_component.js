@@ -16,12 +16,13 @@ export default class FormInputBlockComponent extends Component {
   render(){
     return (
       <View style={styles.inputBlockContainer}>
-        <View style={styles.inputBlockTextBlock}>
-          <Text style={styles.inputBlockText}>{this.props.title+":"}</Text>
-        </View>
+        { this.props.title ? 
+          <View style={styles.inputBlockTextBlock}>
+            <Text style={styles.inputBlockText}>{this.props.title+":"}</Text>
+          </View> : <View />}
         <View style={styles.inputBlock}>
           <TextInput
-            style={styles.inputBlockContent}
+            style={this.props.multiline ? [styles.inputBlockContent,{height: 80}]: styles.inputBlockContent}
             placeholder={this.props.placeholder}
             secureTextEntry={this.props.secureTextEntry||false}
             multiline={this.props.multiline||false}
@@ -37,7 +38,6 @@ var styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "nowrap",
     marginBottom: 20,
-    height: 30
   },
   inputBlockTextBlock: {
     height: 30,
@@ -52,7 +52,6 @@ var styles = StyleSheet.create({
     flex:1,
     borderWidth: 1,
     borderColor: "#e2e6e6",
-    borderRadius: 4,
     padding:4
   },
   inputBlockContent: {
