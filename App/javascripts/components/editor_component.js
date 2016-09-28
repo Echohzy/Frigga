@@ -10,22 +10,18 @@ import {
 
 import {baseColor} from "../../stylesheets/base.js";
 
+import FormInputBlockComponent from "./form_input_block_component";
+
 export default class EditorComponent extends Component {
   render(){
     return (
       <ScrollView styles={{flex: 1}}>
-        <View style={styles.editorItemBlock}>
-          <Text style={styles.editorItemText}>标题：</Text>
-          <TextInput style={styles.editorItemInput}/>
-        </View>
-        <View style={styles.editorItemBlock}>
-          <Text style={styles.editorItemText}>描述：</Text>
-          <TextInput style={styles.editorItemInput}/>
-        </View>
-        <View style={styles.editorItemBlock}>
-          <Text style={styles.editorItemText}>内容：</Text>
-          <TextInput multiline={true} style={[styles.editorItemInput,{minHeight: 100}]}/>
-        </View>
+        <FormInputBlockComponent
+          {...this.props.title}
+          onChange={this.props.onChangeText}/>
+        <FormInputBlockComponent
+          {...this.props.shortDescribetion}
+          onChange={this.props.onChangeText}/>
       </ScrollView>
     );
   }

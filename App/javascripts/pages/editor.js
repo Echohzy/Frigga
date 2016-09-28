@@ -17,8 +17,8 @@ export default class Editor extends Component {
   render(){
     return (
       <View style={{flex: 1}}>
-        <HeaderComponent pop={()=>this.props.pop()} title={"Editor"} />
-        <EditorComponent />
+        <HeaderComponent title={"Editor"} />
+        <EditorComponent {...this.props}/>
         <FooterComponent push={(route)=>this.props.push(route)} selectedItem={"Editor"} />
       </View>
     );

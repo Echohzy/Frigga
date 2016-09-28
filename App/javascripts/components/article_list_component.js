@@ -25,6 +25,7 @@ export default class ArticleListComponent extends Component {
     super(props);
   }
   componentWillMount(){
+    console.log("new component!");
     this.props.onFetchArticleList(articleList);
   }
   render(){
@@ -36,7 +37,7 @@ export default class ArticleListComponent extends Component {
                 <TouchableHighlight style={{marginTop: 6}} key={item.id} underlayColor={"#333"} onPress={()=>this.props.push({title: "Article"})}>
                   <View style={styles.articleBlockContainer}>
                     <View style={styles.articleAvatarBlock}>
-                      <Image source={{uri: item.avatar}} style={styles.articleAvatar}/>
+                      <Image source={{uri: item.author_avatar}} style={styles.articleAvatar}/>
                     </View>
                     <View style={{flex: 1}}>
                       <View style={styles.articleBlockTitleContent}>
