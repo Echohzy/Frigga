@@ -13,10 +13,16 @@ const FETCH_ARTICLELIST = "FETCH_ARTICLELIST";
 const FETCH_ARTICLE = "FETCH_ARTICLE";
 const CHANGE_COMMENT_TEXT = "CHANGE_COMMENT_TEXT";
 
-function addArticle(data){
+var id = 1;
+
+function addArticle(params){
+  id ++;
   return {
     type: ADD_ARTICLE,
-    data: data
+    data: {
+      id: id,
+      ...params
+    }
   };
 }
 

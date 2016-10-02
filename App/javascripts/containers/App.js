@@ -12,6 +12,8 @@ import SignInContainer from "./sign_in_container";
 
 import CommentContainer from "./comment_container";
 
+import EditorContainer from "./editor_container";
+
 import { connect } from "react-redux";
 
 class App extends Component {
@@ -36,6 +38,9 @@ class App extends Component {
           break;
         case "Comment":
           Content = CommentContainer;
+          break;
+        case "Editor":
+          Content = EditorContainer;
           break;
         default:
           Content = HomeContainer;

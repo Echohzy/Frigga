@@ -9,8 +9,6 @@ import {
   TouchableHighlight,
 } from 'react-native';
 
-import { article } from "../../../database.js";
-
 import Icon from 'react-native-vector-icons/FontAwesome.js';
 
 import _ from 'lodash';
@@ -43,19 +41,19 @@ export default class ArticleComponent extends Component {
           <View style={styles.articleContentContainer}>
             <View style={styles.articleAuthorContainer}>
               <View>
-                <Image source={{uri: article.author_avatar}} style={styles.articleAuthorAvatar}/>
+                <Image source={{uri: this.props.article.author_avatar}} style={styles.articleAuthorAvatar}/>
               </View>
               <View style={styles.articleAuthorDetail}>
-                <Text style={styles.articleAuthorNickName}>{article.nick_name}</Text>
-                <Text>{article.created_at.toString().slice(0, 24)}</Text>
+                <Text style={styles.articleAuthorNickName}>{this.props.article.nick_name}</Text>
+                <Text>{this.props.article.created_at?this.props.article.created_at.toString().slice(0, 24):''}</Text>
               </View>
             </View>
-            <View><Text style={styles.articleContentTitleText}>{article.title}</Text></View>
-            <View><Text>{article.content}</Text></View>
+            <View><Text style={styles.articleContentTitleText}>{this.props.article.title}</Text></View>
+            <View><Text>{this.props.article.content}</Text></View>
           </View>
           <View style={styles.articleCommentContainer}>
             {
-              _.map(article.commentData, function(item){
+              _.map(this.props.article.commentData, function(item){
                 return (
                   <View key={item.id} style={styles.articleCommentBlock}>
                     <View style={styles.articleCommentCreator}>
@@ -80,14 +78,14 @@ export default class ArticleComponent extends Component {
           <TouchableHighlight underlayColor={"#333"}  activeOpacity={0.5} style={styles.articleBottomButton}>
             <View style={styles.articleBottomBlock}>
               <Icon name="heart-o" style={styles.articleBottomIcon}/>
-              <Text style={styles.articleBottomText}>{article.like}</Text>
+              <Text style={styles.articleBottomText}>{this.props.article.like}</Text>
             </View>
           </TouchableHighlight>
           <View style={styles.articleBottomLine} />
           <TouchableHighlight style={styles.articleBottomButton} underlayColor={"#333"} activeOpacity={0.5} onPress={()=>this.handleComment()}>
             <View style={styles.articleBottomBlock}>
               <Icon name="commenting-o" style={styles.articleBottomIcon}/>
-              <Text style={styles.articleBottomText}>{article.comment}</Text>
+              <Text style={styles.articleBottomText}>{this.props.article.comment}</Text>
             </View>
           </TouchableHighlight>
         </View>

@@ -38,7 +38,7 @@ export default class ArticleListComponent extends Component {
                         <Text style={styles.articleBlockTitle}>{item.title}</Text>
                       </View>
                       <View style={styles.articleShortDescribtionContent}>
-                        <Text style={styles.articleShortDescribtion}>{item.shortDescribetion}</Text>
+                        <Text style={styles.articleShortDescribtion}>{item.short_describetion}</Text>
                       </View>
                       <View style={styles.articleDetail}>
                         <TouchableOpacity onPress={()=>this.props.onLikeArticle(item.id)}>
@@ -54,7 +54,7 @@ export default class ArticleListComponent extends Component {
                           </View>
                         </TouchableOpacity>
                         <View>
-                          <Text style={styles.articleDetailText}>{item.release_date.toString().slice(0, 24)}</Text>
+                          <Text style={styles.articleDetailText}>{item.created_at.toString().slice(0, 24)}</Text>
                         </View>
                       </View>
                     </View>

@@ -29,7 +29,7 @@ function articleList(state, action){
         return item;
       });
     case ADD_ARTICLE:
-      return [action.article, ...state];
+      return [action.data, ...state];
     case DELETE_ARTICLE:
       return _.filter(state, function(item){
         return item.id === action.id;

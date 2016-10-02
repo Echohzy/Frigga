@@ -1,6 +1,6 @@
 var articleList = [{
   title: "测试文章啦啦啦啦",
-  shortDescribetion: "这是测试文章啦",
+  short_describetion: "这是测试文章啦",
   content: "这是测试这是测试这是测试啦啦啦啦啦啦啦",
   author_avatar: "http://7arnu9.com1.z0.glb.clouddn.com/FvzoFNX5yrjOnJrn_wh58Pw1Q42z_xl",
   created_at: new Date(2016,8,8),
@@ -8,7 +8,6 @@ var articleList = [{
   like: 3,
   comment: 2,
   id: 1,
-  release_date: new Date(),
   commentData: [{
     created_at: new Date(2016, 8,16),
     creator_nick_name: "Canaan",
@@ -27,14 +26,14 @@ var articleList = [{
 
 var article = {
   title: "测试文章啦啦啦啦",
-  shortDescribetion: "这是测试文章啦",
+  short_describetion: "这是测试文章啦",
   content: "这是测试这是测试这是测试啦啦啦啦啦啦啦",
   author_avatar: "http://7arnu9.com1.z0.glb.clouddn.com/FvzoFNX5yrjOnJrn_wh58Pw1Q42z_xl",
   created_at: new Date(2016,8,8),
   nick_name: "Canaan",
   like: 3,
   comment: 2,
-  id: 1,
+  id: 0,
   release_date: new Date(),
   commentData: [{
     created_at: new Date(2016, 8,16),
@@ -53,11 +52,11 @@ var article = {
 
 var account = {
   backgroundImage: "http://7arnu9.com1.z0.glb.clouddn.com/FvzoFNX5yrjOnJrn_wh58Pw1Q42z_xl",
-  avatar: "../../images/test3.jpg",
+  avatar: "http://7arnu9.com1.z0.glb.clouddn.com/FvzoFNX5yrjOnJrn_wh58Pw1Q42z_xl",
   nick_name: "Canaan",
   user_name: "test",
   password: "12345678",
-  id:"1"
+  id:1
 };
 
 export {

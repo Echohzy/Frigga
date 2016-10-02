@@ -24,7 +24,7 @@ var mapDispatchToProps = function(reducerName){
         dispatch(signIn(params));
       }
     };
-  }
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps("signInReducer"))(SignIn);

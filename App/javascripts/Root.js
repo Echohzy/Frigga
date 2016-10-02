@@ -11,6 +11,8 @@ import signInReducer from "./reducers/sign_in_form_reducer";
 
 import commentReducer from "./reducers/comment_reducer";
 
+import editorReducer from "./reducers/editor_reducer";
+
 import App from "./containers/App";
 
 import {Provider} from "react-redux";
@@ -27,7 +29,8 @@ var store = createStore(
     articleReducer: articleReducer,
     accountReducer: accountReducer,
     signInReducer: signInReducer,
-    commentReducer: commentReducer
+    commentReducer: commentReducer,
+    editorReducer: editorReducer
   }),
   {
     articleListReducer: {
