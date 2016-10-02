@@ -24,14 +24,14 @@ export default class SignInComponent extends Component {
           <TextInput
             style={styles.inputBlock}
             placeholder={"请输入用户名"}
-            onChange={(event)=>this.props.onChange("login_name", event.nativeEvent.text)}/>
+            onChange={(event)=>this.props.onChangeText("login_name", event.nativeEvent.text)}/>
         </View>
         <View style={styles.formInputBlock}>
           <Icon name={"lock"} size={30} style={styles.formInputIconBlock}/>
           <TextInput 
             style={styles.inputBlock}
             secureTextEntry={true}
-            onChange={(event)=>this.props.onChange("password", event.nativeEvent.text)}
+            onChange={(event)=>this.props.onChangeText("password", event.nativeEvent.text)}
             placeholder={"请输入密码"}/>
         </View>
         <TouchableOpacity style={styles.submitButton} onPress={()=>this.props.onSignIn({login_name: this.props.login_name.value, password: this.props.password.value})}>

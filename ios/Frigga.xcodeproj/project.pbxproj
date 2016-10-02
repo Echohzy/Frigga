@@ -142,7 +142,6 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Frigga/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		444E85E41D9C0A1100EFF8D3 /* Frigga copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Frigga copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		444E85E51D9C0A1200EFF8D3 /* Frigga copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Frigga copy-Info.plist"; path = "/Users/plusman/Desktop/Frigga/ios/Frigga copy-Info.plist"; sourceTree = "<absolute>"; };
 		449A78A01D5F4FCE00A5DFC6 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
@@ -330,7 +329,6 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* FriggaTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
-				444E85E51D9C0A1200EFF8D3 /* Frigga copy-Info.plist */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";

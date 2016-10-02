@@ -3,6 +3,8 @@ import {
   article
 } from "../../../database";
 
+import _ from "lodash";
+
 const ADD_ARTICLE = "ADD_ARTICLE";
 const DELETE_ARTICLE = "DELETE_ARTICLE";
 const COMMENT_ARTICLE = "COMMENT_ARTICLE";
@@ -60,6 +62,15 @@ function changeCommentText(value){
   };
 }
 
+function getArticle(id){
+  return function(dispatch, getState){
+    var articleList = getState().articleListReducer.articleList;
+    dispatch(fetchArticle(_.find(articleList,function(item){
+      return item.id === id;
+    })))
+  }
+}
+
 export {
   ADD_ARTICLE,
   DELETE_ARTICLE,
@@ -72,7 +83,6 @@ export {
   deleteArticle,
   commentArticle,
   likeArticle,
-  fetchArticleList,
-  fetchArticle,
-  changeCommentText
+  changeCommentText,
+  getArticle
 };

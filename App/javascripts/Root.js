@@ -17,6 +17,8 @@ import {Provider} from "react-redux";
 
 import { createStore, combineReducers, applyMiddleware } from "redux";
 
+import { articleList, account } from "../../database";
+
 import ReduxThunk from "redux-thunk";
 
 var store = createStore(
@@ -27,6 +29,11 @@ var store = createStore(
     signInReducer: signInReducer,
     commentReducer: commentReducer
   }),
+  {
+    articleListReducer: {
+      articleList: articleList
+    }
+  },
   applyMiddleware(ReduxThunk)
 );
 

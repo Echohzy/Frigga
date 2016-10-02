@@ -3,7 +3,7 @@ import Article from "../pages/article";
 import { connect } from "react-redux";
 
 import {
-  fetchArticle
+  getArticle
 } from "../actions/article_action";
 
 var mapStateToProps = function(state, ownProps){
@@ -15,8 +15,8 @@ var mapStateToProps = function(state, ownProps){
 
 var mapDispatchToProps = function(dispatch){
   return {
-    onFetchArticle: function(data){
-      dispatch(fetchArticle(data));
+    onFetchArticle: function(id){
+      dispatch(getArticle(id));
     }
   };
 };

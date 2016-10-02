@@ -16,17 +16,11 @@ import _ from 'lodash';
 
 import Article from '../pages/article.js';
 
-import { articleList } from "../../../database.js";
-
 import {baseColor} from "../../stylesheets/base.js";
 
 export default class ArticleListComponent extends Component {
   constructor(props){
     super(props);
-  }
-  componentWillMount(){
-    console.log("new component!");
-    this.props.onFetchArticleList(articleList);
   }
   render(){
     return (
@@ -34,7 +28,7 @@ export default class ArticleListComponent extends Component {
           {
             _.map(this.props.articleList, function(item){
               return (
-                <TouchableHighlight style={{marginTop: 6}} key={item.id} underlayColor={"#333"} onPress={()=>this.props.push({title: "Article"})}>
+                <TouchableHighlight style={{marginTop: 6}} key={item.id} underlayColor={"#333"} onPress={()=>this.props.push({title: "Article", props: {articleId: item.id}})}>
                   <View style={styles.articleBlockContainer}>
                     <View style={styles.articleAvatarBlock}>
                       <Image source={{uri: item.author_avatar}} style={styles.articleAvatar}/>

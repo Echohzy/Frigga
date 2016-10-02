@@ -27,8 +27,8 @@ export default class ArticleComponent extends Component {
     this.handleComment = this.handleComment.bind(this);
     this.showUser = this.showUser.bind(this);
   }
-  componentWillMount(){
-    this.props.onFetchArticle(article);
+  componentDidMount(){
+    this.props.onFetchArticle(this.props.articleId);
   }
   handleComment(){
     this.props.push({title:"Comment"})

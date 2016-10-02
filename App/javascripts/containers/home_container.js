@@ -7,7 +7,8 @@ import {
   deleteArticle,
   commentArticle,
   likeArticle,
-  fetchArticleList
+  fetchArticleList,
+  getArticleList
 } from '../actions/article_action';
 
 function mapStateToProps(state){
@@ -22,9 +23,6 @@ function mapDispatchToProps(dispatch){
     onLikeArticle: function(id){
       dispatch(likeArticle(id));
     },
-    onFetchArticleList: function(data){
-      dispatch(fetchArticleList(data));
-    }
   };
 }
 

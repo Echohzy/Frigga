@@ -50,7 +50,6 @@ class App extends Component {
       },
       ...route.props
     });
-
     return <Content {...props} />
   }
   render(){
