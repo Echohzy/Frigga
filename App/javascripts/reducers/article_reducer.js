@@ -1,6 +1,6 @@
 import {
   LIKE_ARTICLE,
-  FETCH_ARTICLE
+  FETCH_ARTICLE,
 } from "../actions/article_action";
 
 import { combineReducers } from "redux";

@@ -16,8 +16,8 @@ function articleList(state, action){
       return action.data;
     case COMMENT_ARTICLE:
       return _.map(state, function(item){
-        if(item.id === action.id){
-          return Object.assign({}, item, {comment: item.comment+1});
+        if(item.id === action.articleId){
+          return Object.assign({}, item, {comment: item.comment+1, commentData: [action.comment, ...item.commentData]});
         }
         return item;
       });
@@ -30,6 +30,7 @@ function articleList(state, action){
       });
     case ADD_ARTICLE:
       return [action.data, ...state];
+
     case DELETE_ARTICLE:
       return _.filter(state, function(item){
         return item.id === action.id;

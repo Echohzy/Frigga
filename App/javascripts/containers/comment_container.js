@@ -1,7 +1,8 @@
 import Comment from "../pages/comment";
 
 import {
-  commentArticle
+  commentArticle,
+  getArticle
 } from "../actions/article_action";
 
 import {
@@ -12,18 +13,9 @@ import {
   connect
 } from "react-redux";
 
-var ATTRS = {
-  comment: {
-    placeholder: "请输入评论",
-    value:"",
-    attrName: "comment",
-    multiline:true
-  }
-};
-
 var mapStateToProps = function(state){
   return {
-    comment: Object.assign({}, ATTRS.comment, state.commentReducer.comment),
+    comment: state.commentReducer.comment,
     account: state.accountReducer.account
   };
 };
@@ -32,10 +24,13 @@ var mapDispatchToProps = function(reducerName){
   return function (dispatch){
     return {
       onChangeText: function(attrName, text){
-        dispatch(changeTextInputValue(text));
+        dispatch(changeTextInputValue(reducerName, attrName, text));
       },
       onCommentSubmit: function(params){
         dispatch(commentArticle(params));
+      },
+      onFetchArticle: function(id){
+        dispatch(getArticle(id));
       }
     };
   };

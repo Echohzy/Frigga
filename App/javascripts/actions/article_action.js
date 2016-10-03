@@ -36,7 +36,8 @@ function deleteArticle(id){
 function commentArticle(params){
   return {
     type: COMMENT_ARTICLE,
-    ...params
+    articleId: params.articleId,
+    comment: params.comment
   };
 }
 
@@ -70,10 +71,13 @@ function changeCommentText(value){
 
 function getArticle(id){
   return function(dispatch, getState){
-    var articleList = getState().articleListReducer.articleList;
-    dispatch(fetchArticle(_.find(articleList,function(item){
+
+    var article = _.find(getState().articleListReducer.articleList,function(item){
       return item.id === id;
-    })))
+    });
+    if(article){
+      dispatch(fetchArticle(article));
+    }
   }
 }
 

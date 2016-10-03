@@ -22,14 +22,10 @@ import UserComponent from "./user_component.js";
 export default class ArticleComponent extends Component {
   constructor(props){
     super(props);
-    this.handleComment = this.handleComment.bind(this);
     this.showUser = this.showUser.bind(this);
   }
   componentDidMount(){
     this.props.onFetchArticle(this.props.articleId);
-  }
-  handleComment(){
-    this.props.push({title:"Comment"})
   }
   showUser(){
     this.props.push({title: "User"});
@@ -53,9 +49,9 @@ export default class ArticleComponent extends Component {
           </View>
           <View style={styles.articleCommentContainer}>
             {
-              _.map(this.props.article.commentData, function(item){
+              _.map(this.props.article.commentData, function(item,index){
                 return (
-                  <View key={item.id} style={styles.articleCommentBlock}>
+                  <View key={index} style={styles.articleCommentBlock}>
                     <View style={styles.articleCommentCreator}>
                       <View>
                         <Image source={{uri: item.creator_avatar}} style={styles.articleCommentCreatorImage}/>
@@ -78,14 +74,14 @@ export default class ArticleComponent extends Component {
           <TouchableHighlight underlayColor={"#333"}  activeOpacity={0.5} style={styles.articleBottomButton}>
             <View style={styles.articleBottomBlock}>
               <Icon name="heart-o" style={styles.articleBottomIcon}/>
-              <Text style={styles.articleBottomText}>{this.props.article.like}</Text>
+              <Text style={styles.articleBottomText}>{this.props.article.like||0}</Text>
             </View>
           </TouchableHighlight>
           <View style={styles.articleBottomLine} />
-          <TouchableHighlight style={styles.articleBottomButton} underlayColor={"#333"} activeOpacity={0.5} onPress={()=>this.handleComment()}>
+          <TouchableHighlight style={styles.articleBottomButton} underlayColor={"#333"} activeOpacity={0.5} onPress={()=>this.props.push({title:"Comment",props: {articleId: this.props.article.id}})}>
             <View style={styles.articleBottomBlock}>
               <Icon name="commenting-o" style={styles.articleBottomIcon}/>
-              <Text style={styles.articleBottomText}>{this.props.article.comment}</Text>
+              <Text style={styles.articleBottomText}>{this.props.article.comment||0}</Text>
             </View>
           </TouchableHighlight>
         </View>

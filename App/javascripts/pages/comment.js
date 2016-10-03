@@ -21,14 +21,20 @@ export default class Comment extends Component {
        '错误',
        '评论不能为空'
       );
-    }else{
-      var params = {
-        articleId: this.props.articleId,
-        comment: this.props.comment.value,
-        ...this.props.account
-      }
-      this.props.onCommentSubmit(params);
+      return;
     }
+    var params = {
+      articleId: this.props.articleId,
+      comment: {
+        content: this.props.comment.value,
+        created_at: new Date(),
+        creator_nick_name: this.props.account.nick_name,
+        creator_avatar: this.props.account.avatar,
+      }
+    };
+    this.props.onCommentSubmit(params);
+    this.props.onFetchArticle(this.props.articleId);
+    this.props.pop();
   }
   render(){
     return (

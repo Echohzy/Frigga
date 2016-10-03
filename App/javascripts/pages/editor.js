@@ -36,6 +36,7 @@ export default class Editor extends Component {
       nick_name: this.props.account.nick_name
     };
     this.props.onSubmitArticle(params);
+    this.props.push({title: "Home"});
   }
   render(){
     return (

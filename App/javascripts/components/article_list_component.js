@@ -44,13 +44,13 @@ export default class ArticleListComponent extends Component {
                         <TouchableOpacity onPress={()=>this.props.onLikeArticle(item.id)}>
                           <View style={styles.articleDetailItem}>
                             <Icon style={styles.articleDetailIcon} name={"heart-o"} size={14}/>
-                            <Text style={styles.articleDetailText}>{item.like}</Text>
+                            <Text style={styles.articleDetailText}>{item.like||0}</Text>
                           </View>
                         </TouchableOpacity>
                         <TouchableOpacity onPress={()=>this.props.push({title: "Comment", props: {articleId: item.id}})}>
                           <View style={styles.articleDetailItem}>
                             <Icon style={styles.articleDetailIcon} name={"commenting-o"} size={14} />
-                            <Text style={styles.articleDetailText} >{item.comment}</Text>
+                            <Text style={styles.articleDetailText} >{item.comment||0}</Text>
                           </View>
                         </TouchableOpacity>
                         <View>
