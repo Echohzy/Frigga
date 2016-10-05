@@ -14,6 +14,9 @@ import CommentContainer from "./comment_container";
 
 import EditorContainer from "./editor_container";
 
+import UserContainer from './user_container';
+
+
 import { connect } from "react-redux";
 
 class App extends Component {
@@ -41,6 +44,9 @@ class App extends Component {
           break;
         case "Editor":
           Content = EditorContainer;
+          break;
+        case "User":
+          Content = UserContainer;
           break;
         default:
           Content = HomeContainer;

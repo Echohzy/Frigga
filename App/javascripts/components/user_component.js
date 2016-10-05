@@ -11,21 +11,22 @@ import {
 
 import ParallaxView from 'react-native-parallax-view';
 
-import { user } from "../../../database.js";
-
 export default class UserComponent extends Component {
   render(){
     return (
-      <ParallaxView
-        backgroundSource={{url: user.backgroundImage}} windowHeight={300}>
-          <View>
-            <View style={styles.userAvatarContainer}>
-              <View style={{flex: 1}}/>
-              <View><Image source={require("../../images/test3.jpg")} style={styles.userAvatarImage} /></View>
-              <View style={{flex: 1}}/>
+      <ScrollView style={styles.userContainer}>
+        <ParallaxView
+          backgroundSource={{url: this.props.account.backgroundImage}}>
+            <View>
+              <View style={styles.userAvatarContainer}>
+                <View><Image source={require("../../images/test3.jpg")} style={styles.userAvatarImage} /></View>
+              </View>
+              <View style={styles.userNameContainer}>
+                <Text style={styles.userNameText}>{this.props.account.nick_name}</Text>
+              </View>
             </View>
-          </View>
-      </ParallaxView>
+        </ParallaxView>
+      </ScrollView>
     );
   }
 };
@@ -35,8 +36,7 @@ var styles = StyleSheet.create({
     flex: 1
   },
   userAvatarContainer: {
-    flexDirection: "row",
-    flexWrap: "nowrap",
+    alignItems: "center"
   },
   userAvatarImage: {
     height: 80,
@@ -44,5 +44,13 @@ var styles = StyleSheet.create({
     borderRadius: 40,
     resizeMode: "cover",
     marginTop: -40
+  },
+  userNameContainer: {
+    alignItems: "center",
+    marginTop: 10
+  },
+  userNameText: {
+    fontSize: 20,
+    fontWeight: "bold"
   }
 });
