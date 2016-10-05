@@ -6,14 +6,14 @@ import {
   ScrollView,
   Text,
   Image,
-  TouchableHighlight,
+  TouchableOpacity,
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/FontAwesome.js';
 
 import _ from 'lodash';
 
-import { baseColor } from '../../stylesheets/base.js';
+import { baseColor } from '../util/base_style.js';
 
 import CommentComponent from './comment_component.js';
 
@@ -22,13 +22,13 @@ import UserComponent from "./user_component.js";
 export default class ArticleComponent extends Component {
   constructor(props){
     super(props);
-    this.showUser = this.showUser.bind(this);
   }
   componentDidMount(){
     this.props.onFetchArticle(this.props.articleId);
   }
-  showUser(){
-    this.props.push({title: "User"});
+  handleDeleteArticle(){
+    this.props.onDeleteArticle(this.props.article.id);
+    this.props.pop();
   }
   render(){
     return (
@@ -43,6 +43,15 @@ export default class ArticleComponent extends Component {
                 <Text style={styles.articleAuthorNickName}>{this.props.article.nick_name}</Text>
                 <Text>{this.props.article.created_at?this.props.article.created_at.toString().slice(0, 24):''}</Text>
               </View>
+              {
+                this.props.account.id === this.props.article.author_id?
+                <View style={styles.articleDeleteButtonContainer}>
+                  <TouchableOpacity onPress={()=>this.handleDeleteArticle()}>
+                    <Icon name={"trash"} size={16} style={{color: baseColor.borderGrey}}/>
+                  </TouchableOpacity>
+                </View>:
+                <View />
+              }
             </View>
             <View><Text style={styles.articleContentTitleText}>{this.props.article.title}</Text></View>
             <View><Text>{this.props.article.content}</Text></View>
@@ -57,7 +66,7 @@ export default class ArticleComponent extends Component {
                         <Image source={{uri: item.creator_avatar}} style={styles.articleCommentCreatorImage}/>
                       </View>
                       <View>
-                        <TouchableHighlight onPress={()=>this.showUser()}><Text>{item.creator_nick_name}</Text></TouchableHighlight>
+                        <TouchableOpacity><Text>{item.creator_nick_name}</Text></TouchableOpacity>
                         <Text>{item.created_at.toString().slice(0,24)}</Text>
                       </View>
                     </View>
@@ -71,19 +80,19 @@ export default class ArticleComponent extends Component {
           </View>
         </ScrollView>
         <View style={styles.articleBottomContainer}>
-          <TouchableHighlight underlayColor={"#333"}  activeOpacity={0.5} style={styles.articleBottomButton}>
+          <TouchableOpacity underlayColor={"#333"}  activeOpacity={0.5} style={styles.articleBottomButton}>
             <View style={styles.articleBottomBlock}>
               <Icon name="heart-o" style={styles.articleBottomIcon}/>
               <Text style={styles.articleBottomText}>{this.props.article.like||0}</Text>
             </View>
-          </TouchableHighlight>
+          </TouchableOpacity>
           <View style={styles.articleBottomLine} />
-          <TouchableHighlight style={styles.articleBottomButton} underlayColor={"#333"} activeOpacity={0.5} onPress={()=>this.props.push({title:"Comment",props: {articleId: this.props.article.id}})}>
+          <TouchableOpacity style={styles.articleBottomButton} underlayColor={"#333"} activeOpacity={0.5} onPress={()=>this.props.push({title:"Comment",props: {articleId: this.props.article.id}})}>
             <View style={styles.articleBottomBlock}>
               <Icon name="commenting-o" style={styles.articleBottomIcon}/>
               <Text style={styles.articleBottomText}>{this.props.article.comment||0}</Text>
             </View>
-          </TouchableHighlight>
+          </TouchableOpacity>
         </View>
       </View>
     );
@@ -182,5 +191,10 @@ var styles = StyleSheet.create({
   },
   articleCommentContent: {
     marginTop: 6
+  },
+  articleDeleteButtonContainer: {
+    flex: 1,
+    paddingRight: 6,
+    alignItems:"flex-end"
   }
 });

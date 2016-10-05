@@ -3,7 +3,7 @@ import {
   DELETE_ARTICLE,
   COMMENT_ARTICLE,
   LIKE_ARTICLE,
-  FETCH_ARTICLELIST
+  FETCH_ARTICLELIST,
 } from "../actions/article_action";
 
 import { combineReducers } from "redux";
@@ -30,10 +30,9 @@ function articleList(state, action){
       });
     case ADD_ARTICLE:
       return [action.data, ...state];
-
     case DELETE_ARTICLE:
       return _.filter(state, function(item){
-        return item.id === action.id;
+        return item.id != action.id;
       });
     default:
       return state|| [];

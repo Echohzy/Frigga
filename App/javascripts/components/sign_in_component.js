@@ -20,14 +20,18 @@ export default class SignInComponent extends Component {
     return (
       <View style={styles.signInFormContainer}>
         <View style={styles.formInputBlock}>
-          <Icon name={"user"} size={30} style={styles.formInputIconBlock}/>
+          <View style={styles.formInputIconBlock}>
+            <Icon name={"user"} size={30} style={styles.formInputIcon}/>
+          </View>
           <TextInput
             style={styles.inputBlock}
             placeholder={"请输入用户名"}
             onChange={(event)=>this.props.onChangeText("login_name", event.nativeEvent.text)}/>
         </View>
         <View style={styles.formInputBlock}>
-          <Icon name={"lock"} size={30} style={styles.formInputIconBlock}/>
+          <View style={styles.formInputIconBlock}>
+            <Icon name={"lock"} size={30} style={styles.formInputIcon}/>
+          </View>
           <TextInput 
             style={styles.inputBlock}
             secureTextEntry={true}
@@ -74,12 +78,12 @@ var styles = StyleSheet.create({
     justifyContent: "center"
   },
   formInputIconBlock:{
+    width: 40,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  formInputIcon:{
     color: baseColor.borderGrey,
-    paddingLeft:4,
-    paddingRight:4,
-    borderRightWidth: 1,
-    borderColor: baseColor.borderGrey,
-
   },
   inputBlock:{
     flex: 1,

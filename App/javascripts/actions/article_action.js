@@ -69,6 +69,7 @@ function changeCommentText(value){
   };
 }
 
+
 function getArticle(id){
   return function(dispatch, getState){
 
@@ -80,6 +81,8 @@ function getArticle(id){
     }
   }
 }
+
+
 
 export {
   ADD_ARTICLE,

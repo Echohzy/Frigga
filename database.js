@@ -3,6 +3,7 @@ var articleList = [{
   short_describetion: "这是测试文章啦",
   content: "这是测试这是测试这是测试啦啦啦啦啦啦啦",
   author_avatar: "http://7arnu9.com1.z0.glb.clouddn.com/FvzoFNX5yrjOnJrn_wh58Pw1Q42z_xl",
+  author_id: 1,
   created_at: new Date(2016,8,8),
   nick_name: "Canaan",
   like: 3,
@@ -51,7 +52,7 @@ var article = {
 };
 
 var account = {
-  backgroundImage: "http://7arnu9.com1.z0.glb.clouddn.com/FvzoFNX5yrjOnJrn_wh58Pw1Q42z_xl",
+  backgroundImage: "http://7arnu9.com1.z0.glb.clouddn.com/Fhw1NaWhp2fEV7x4s8eAAv9WGXgN",
   avatar: "http://7arnu9.com1.z0.glb.clouddn.com/FvzoFNX5yrjOnJrn_wh58Pw1Q42z_xl",
   nick_name: "Canaan",
   user_name: "test",
